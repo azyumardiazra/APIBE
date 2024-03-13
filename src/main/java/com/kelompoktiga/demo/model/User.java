@@ -26,10 +26,12 @@ public class User {
     public User() {
     }
 
-    public User(Long iduser, String namauser, Long phoneNumber) {
+    public User(Long iduser, String namauser, Long phoneNumber, Feedback feedbackUser, Queue queueUser) {
         this.iduser = iduser;
         this.namauser = namauser;
         this.phoneNumber = phoneNumber;
+        this.feedbackUser = feedbackUser;
+        this.queueUser = queueUser;
     }
 
     public Long getIduser() {
@@ -56,12 +58,30 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
+    public Feedback getFeedbackUser() {
+        return feedbackUser;
+    }
+
+    public void setFeedbackUser(Feedback feedbackUser) {
+        this.feedbackUser = feedbackUser;
+    }
+
+    public Queue getQueueUser() {
+        return queueUser;
+    }
+
+    public void setQueueUser(Queue queueUser) {
+        this.queueUser = queueUser;
+    }
+
     @Override
     public String toString() {
-        return "user{" +
+        return "User{" +
                 "iduser=" + iduser +
                 ", namauser='" + namauser + '\'' +
                 ", phoneNumber=" + phoneNumber +
+                ", feedbackUser=" + feedbackUser +
+                ", queueUser=" + queueUser +
                 '}';
     }
 }

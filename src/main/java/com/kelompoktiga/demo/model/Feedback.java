@@ -2,7 +2,8 @@ package com.kelompoktiga.demo.model;
 
 import jakarta.persistence.*;
 
-
+@Entity
+@Table(name="feedback")
 public class Feedback {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,10 +25,11 @@ public class Feedback {
     public Feedback() {
     }
 
-    public Feedback(Long idfeedback, User userFeedback, Customer feedbackCustomer) {
+    public Feedback(Long idfeedback, User userFeedback, Customer feedbackCustomer, Branch branchFeedback) {
         this.idfeedback = idfeedback;
         this.userFeedback = userFeedback;
         this.feedbackCustomer = feedbackCustomer;
+        this.branchFeedback = branchFeedback;
     }
 
     public Long getIdfeedback() {

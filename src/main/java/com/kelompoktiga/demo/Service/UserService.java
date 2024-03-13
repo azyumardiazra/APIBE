@@ -26,10 +26,10 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public List <User> findUsersByNameContainingIgnoreCase(String name) { //class sensitif
-        if (StringUtils.hasText(name)) {
-            return userRepository.findUsersByNameContainingIgnoreCase(name);
-        }
-        return userRepository.findAll();
-    }
+//    public List <User> findUsersByNameContainingIgnoreCase(String name) { //class sensitif
+//        if (StringUtils.hasText(name)) {
+//            return userRepository.findUsersByNameContainingIgnoreCase(name);
+//        }
+//        return userRepository.findAll();
+//    }
 }

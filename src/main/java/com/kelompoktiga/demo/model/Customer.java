@@ -3,6 +3,8 @@ package com.kelompoktiga.demo.model;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+@Entity
+@Table(name="Customer")
 
 public class Customer {
     @Id
@@ -27,12 +29,13 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(Long idcustomer, String nameCustomer, Long mpin, BigDecimal balance, String customerPhoneNumber) {
+    public Customer(Long idcustomer, String nameCustomer, Long mpin, BigDecimal balance, String customerPhoneNumber, Feedback customerFeedback) {
         this.idcustomer = idcustomer;
         this.nameCustomer = nameCustomer;
         Mpin = mpin;
         this.balance = balance;
         this.customerPhoneNumber = customerPhoneNumber;
+        this.customerFeedback = customerFeedback;
     }
 
     public Long getIdcustomer() {
@@ -83,5 +86,15 @@ public class Customer {
         this.customerFeedback = customerFeedback;
     }
 
-
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "idcustomer=" + idcustomer +
+                ", nameCustomer='" + nameCustomer + '\'' +
+                ", Mpin=" + Mpin +
+                ", balance=" + balance +
+                ", customerPhoneNumber='" + customerPhoneNumber + '\'' +
+                ", customerFeedback=" + customerFeedback +
+                '}';
+    }
 }

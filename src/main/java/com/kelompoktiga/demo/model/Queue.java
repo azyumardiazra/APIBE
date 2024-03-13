@@ -12,22 +12,25 @@ public class Queue {
     @Column(name = "queue_number")
     private Long queuenumber;
 
+    @Column(name = "second_chanche")
+    private String secondChance;
 
     @Column(name = "on_serving")
     private Boolean onServe;
 
-    @Column(name = "user_id")
-    private Long userid;
-
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    private User userQueue;
 
     public Queue() {
     }
 
-    public Queue(Long idqueue, Long queuenumber, String secondChance, Boolean onServe, Long userid) {
+    public Queue(Long idqueue, Long queuenumber, String secondChance, Boolean onServe, Long userid, User userQueue) {
         this.idqueue = idqueue;
         this.queuenumber = queuenumber;
+        this.secondChance = secondChance;
         this.onServe = onServe;
-        this.userid = userid;
+        this.userQueue = userQueue;
     }
 
     public Long getIdqueue() {
@@ -46,6 +49,14 @@ public class Queue {
         this.queuenumber = queuenumber;
     }
 
+    public String getSecondChance() {
+        return secondChance;
+    }
+
+    public void setSecondChance(String secondChance) {
+        this.secondChance = secondChance;
+    }
+
     public Boolean getOnServe() {
         return onServe;
     }
@@ -54,23 +65,25 @@ public class Queue {
         this.onServe = onServe;
     }
 
-    public Long getUserid() {
-        return userid;
+
+    public User getUserQueue() {
+        return userQueue;
     }
 
-    public void setUserid(Long userid) {
-        this.userid = userid;
+    public void setUserQueue(User userQueue) {
+        this.userQueue = userQueue;
     }
-
-
 
     @Override
     public String toString() {
-        return "queue{" +
+        return "Queue{" +
                 "idqueue=" + idqueue +
                 ", queuenumber=" + queuenumber +
+                ", secondChance='" + secondChance + '\'' +
                 ", onServe=" + onServe +
-                ", userid=" + userid +
+                ", userQueue=" + userQueue +
                 '}';
     }
 }
+
+
